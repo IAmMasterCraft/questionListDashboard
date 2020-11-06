@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Companion &mdash; Dashboard</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  
+  <!-- Companion CSS -->
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto hide-stuff">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+              <div class="search-header">
+                Random Courses
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-danger text-white mr-3">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  CIT202
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-primary text-white mr-3">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  STT211
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown">
+            <div href="" class="nav-link beep nav-link-lg nav-link-user">
+              <span class="welcome-user">Alaye, Wetin dey happen</span>
+            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="#">Question List</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="#">QL</a>
+          </div>
+          <ul class="sidebar-menu">
+              <li class="menu-header">Quick Links</li>
+              <li class="nav-item active">
+                <a href="./" class="nav-link"><i class="fas fa-fire"></i><span>Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#tma-request">
+                  <i class="fas fa-fire"></i>
+                  <span>Request For TMA</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#pq-request">
+                  <i class="fas fa-fire"></i>
+                  <span>Request For PQ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#feedback">
+                  <i class="fas fa-fire"></i>
+                  <span>Feedback/Suggestions</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact">
+                  <i class="fas fa-fire"></i>
+                  <span>Contact</span>
+                </a>
+              </li>
+              <!-- <li><a class="nav-link" href=""><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li> -->
+            </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1 class="section-header-title">Home</h1>
+          </div>
+          <div class="row" id="parent">
+            <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <a href="#">
+                <div class="card card-statistic-1">
+                  <div class="card-icon bg-primary">
+                    <i class="far fa-user"></i>
+                  </div>
+                  <div class="card-wrap">
+                    <div class="card-header">
+                      <h4>PAST QUESTIONS</h4>
+                    </div>
+                    <div class="card-body">
+                      10
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div> -->
+          </div>
+          <div class="row" id="course-list">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="table-responsive">
+                <table id="tma-course" class="table table-lg table-width-hack">
+                  <thead class="hide-stuff">
+                    <tr>
+                      <td>Courses</td>
+                    </tr>
+                  </thead>
+                  <tbody id="course-body"></tbody>
+                </table>
+              </div>
+            </div>
+            
+            
+          </div>
+        </section>
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2020 <div class="bullet"></div> <i class="ion ion-social-github"></i><a href="https://github.com/IAmMasterCraft">@IAmMasterCraft <i class="fas fa-laptop-code"></i></a>
+        </div>
+        <div class="footer-right">
+          For NOUNITES
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="../assets/js/stisla.js"></script>
+
+  <!-- DataTable JS File -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+  <!-- SweetAlert JS File -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- Template JS File -->
+  <script src="../assets/js/scripts.js"></script>
+  <script src="../assets/js/custom.js"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="../assets/js/page/index-0.js"></script>
+
+  <!-- Companion Script -->
+  <script src="../engines/db/setup.js"></script>
+  <script src="../engines/utilities.js"></script>
+  <script src="../engines/routes.js"></script>
+  <script src="../engines/data.js"></script>
+  <script src="../engines/DOM_Engine.js"></script>
+  <script src="../engines/pages/home.js"></script>
+  <script src="../engines/pages/tma.js"></script>
+  <script src="../engines/pages/tma_questions.js"></script>
+  <script src="../engines/app.js"></script>
+</body>
+</html>

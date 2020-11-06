@@ -1,0 +1,14 @@
+.copyright {
+    float:right; 
+    font-weight: bold; 
+    opacity:0.5;
+}
+
+.hide-stuff {
+    display: none;
+}
+
+.table-width-hack {
+    width: 100% !important;
+    max-width: 90% !important;
+}
