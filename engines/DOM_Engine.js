@@ -115,7 +115,7 @@ const tmaQuestionElement = (info, _img="") => {
         <div class="card-wrap" id="tma_${Date.now()}">
             <div class="card-header">
                 <h4>${getRoute().split("/")[2]}</h4>
-            </div>git
+            </div>
             <div class="card-body">
                 <img style="max-width: 90%" class="img-responsive" src="${data}"/>
                 <div>${info}</div>
@@ -191,6 +191,7 @@ const questionsToDom = () => {
             element = element.split(" @@@ ");
             const img_info = 
 `
+\n
 ${getRoute().split("/")[2]}/@IAmMasterCraft
 \n
 ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
