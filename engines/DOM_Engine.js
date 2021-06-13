@@ -213,6 +213,7 @@ ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
 ${options}]
 ------------------------------
 ${getRoute().split("/")[2]}
+\n
 Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
 ------------------------------
 \n
