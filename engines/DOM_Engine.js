@@ -43,6 +43,7 @@ const loadingNotification = (title, content, imgDataUrl = false) => {
             element: "img",
             attributes: {
                 src: (!imgDataUrl) ? "../pages/ajax-loader.gif" : imgDataUrl,
+                style: "max-width: 90%",
             },
         },
         button: {
