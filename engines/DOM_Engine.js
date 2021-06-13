@@ -48,6 +48,7 @@ const loadingNotification = (title, content, imgDataUrl = false) => {
         button: {
             visible: (!imgDataUrl) ? false : true,
         },
+        width: (!imgDataUrl) ? 1000,
         closeOnClickOutside: false,
         closeOnEscape: false,
     });
@@ -115,12 +116,9 @@ const tmaQuestionElement = (info, qNo, _img="") => {
         <div class="card-wrap" id="tma_${Date.now()}">
             <div class="card-header">
                 <h4>
+                    <span class="text-right btn btn-primary btn-sm" onclick="zoomInWithSwal('${data}', '${qNo}')">Zoom in <i class="fas fa-search"></i></span>
                     ${getRoute().split("/")[2]}
                 </h4>
-                <span class="text-right fa-stack" onclick="zoomInWithSwal('${data}', '${qNo}')">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-plus"></i>
-                </span>
             </div>
             <div class="card-body">
                 <img style="max-width: 90%" class="img-responsive" src="${data}"/>
