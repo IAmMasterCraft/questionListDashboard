@@ -52,7 +52,7 @@ const getTmaQuestions = async() => {
         console.log(error);
         loadingNotification(
             "Arrrrgggghhhhh....", 
-            `Something went wrong with fetching ${splittedRoute[3]}, report back ASAP!`,
+            `Something went wrong with fetching ${getRoute().split("/")[3]}, report back ASAP!`,
             "https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_1024x1024.png"
         );
     }
