@@ -2,7 +2,7 @@
  * 
  * @param {Object} textToImage 
  */
-const textImage = TextImage({style: 20});
+const textImage = TextImage({size: 25});
 
 /**
  * Welcome user
