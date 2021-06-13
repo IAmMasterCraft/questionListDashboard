@@ -35,18 +35,18 @@ const emptyDomObject = (selector) => {
  * notification
  */
 
-const loadingNotification = (title, content) => {
+const loadingNotification = (title, content, imgDataUrl = false) => {
     swal({
         title: title,
         text: content,
         content: {
             element: "img",
             attributes: {
-                src: "../pages/ajax-loader.gif",
+                src: (!imgDataUrl) ? "../pages/ajax-loader.gif" : imgDataUrl,
             },
         },
         button: {
-            visible: false,
+            visible: (!imgDataUrl) ? false : true,
         },
         closeOnClickOutside: false,
         closeOnEscape: false,
@@ -107,14 +107,20 @@ const tmaCourseElement = (info, url) => {
     return element;
 }
 
-const tmaQuestionElement = (info, _img="") => {
+const tmaQuestionElement = (info, qNo, _img="") => {
     // const img = textImage.toImage(info);
     const data = textImage.toDataURL(_img)
     const element = `<div class="col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card card-statistic-1">
         <div class="card-wrap" id="tma_${Date.now()}">
             <div class="card-header">
-                <h4>${getRoute().split("/")[2]}</h4>
+                <h4>
+                    ${getRoute().split("/")[2]}
+                </h4>
+                <span class="text-right fa-stack" onclick="zoomInWithSwal('${data}', '${qNo}')">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-plus"></i>
+                </span>
             </div>
             <div class="card-body">
                 <img style="max-width: 90%" class="img-responsive" src="${data}"/>
@@ -125,6 +131,14 @@ const tmaQuestionElement = (info, _img="") => {
   </div>`;
 
     return element;
+}
+
+const zoomInWithSwal = (imgData, questionNo) => {
+    loadingNotification(
+        getRoute().split("/")[3], 
+        `Question ${questionNo}`,
+        imgData
+    );
 }
 
 const loginElement = () => {
@@ -189,12 +203,16 @@ const questionsToDom = () => {
                 .replace(/op\] /g, "")
                 .replace(/\n/g, "<br>");
             element = element.split(" @@@ ");
+            let options = element[1].replace(/<br>/g, "\n")
+            //$("#parent").append(tmaQuestionElement(`${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`));
             const img_info = 
 `
 \n
 ${getRoute().split("/")[2]}/@IAmMasterCraft
 \n
 ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
+\n
+${options}
 \n
 ------------------------------
 ${getRoute().split("/")[2]} >> Correct Answer: ${element[2].replace("<br>", "")}  
@@ -203,7 +221,7 @@ ${getRoute().split("/")[2]} >> Correct Answer: ${element[2].replace("<br>", "")}
 `
             $("#parent").append(tmaQuestionElement(
                 `******
-                `, img_info
+                `, index + 1, img_info
             ));
         });
         forceCloseSwal();

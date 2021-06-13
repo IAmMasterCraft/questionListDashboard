@@ -36,17 +36,26 @@ const getListedCourses = async() => {
 }
 
 const getTmaQuestions = async() => {
-    const tmaQuestions = [];
-    const splittedRoute = getRoute().split("/");
-    const url = `https://firestore.googleapis.com/v1beta1/projects/exam-76c31/databases/(default)/documents/${splittedRoute[1]}/${splittedRoute[3]}`;
-    await $.get(url, (result) => {
-        const allResult = Object.objsize(result["fields"]);
-        for (let index = 0; index < allResult; index++) {
-            const element = result["fields"][`question${index + 1}`];
-            tmaQuestions.push(element["stringValue"]);
-        }
-    });
-    return await tmaQuestions;
+    try {
+        const tmaQuestions = [];
+        const splittedRoute = getRoute().split("/");
+        const url = `https://firestore.googleapis.com/v1beta1/projects/exam-76c31/databases/(default)/documents/${splittedRoute[1]}/${splittedRoute[3]}`;
+        await $.get(url, (result) => {
+            const allResult = Object.objsize(result["fields"]);
+            for (let index = 0; index < allResult; index++) {
+                const element = result["fields"][`question${index + 1}`];
+                tmaQuestions.push(element["stringValue"]);
+            }
+        });
+        return await tmaQuestions;
+    } catch (error) {
+        console.log(error);
+        loadingNotification(
+            "Arrrrgggghhhhh....", 
+            `Something went wrong with fetching ${splittedRoute[3]}, report back ASAP!`,
+            "https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_1024x1024.png"
+        );
+    }
 }
 
 const getUser = async (userCode) => {
