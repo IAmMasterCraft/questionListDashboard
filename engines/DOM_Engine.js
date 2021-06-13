@@ -182,8 +182,8 @@ const courseCodeToDom = async() => {
 
 const splitInFive = (text) => {
     const splitted = text.split(" ");
-    let count = Math.ceil(splitted.length/5);
-    if ((splitted.length % 5 != 0) && ((count * 5) < splitted.length)) count++;
+    let count = Math.ceil(splitted.length/7);
+    if ((splitted.length % 7 != 0) && ((count * 7) < splitted.length)) count++;
     const result = splitted.map((a, i)=> {
         let res = a;
         if (i % count === 0 && i !== 0) res += `\n`;
@@ -210,13 +210,12 @@ const questionsToDom = () => {
 ${getRoute().split("/")[2]}/@IAmMasterCraft
 \n
 ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
-\n
 ${options}
 \n
 ------------------------------
-${getRoute().split("/")[2]} >> Correct Answer: ${element[2].replace("<br>", "")}  
+${getRoute().split("/")[2]} >> Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
 ------------------------------
-\n\n
+\n
 `
             $("#parent").append(tmaQuestionElement(
                 `******
