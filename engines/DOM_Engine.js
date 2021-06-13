@@ -48,7 +48,7 @@ const loadingNotification = (title, content, imgDataUrl = false) => {
         button: {
             visible: (!imgDataUrl) ? false : true,
         },
-        width: (!imgDataUrl) ? 1000,
+        width: 1000,
         closeOnClickOutside: false,
         closeOnEscape: false,
     });
