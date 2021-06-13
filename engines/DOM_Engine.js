@@ -210,10 +210,10 @@ const questionsToDom = () => {
 ${getRoute().split("/")[2]}/@IAmMasterCraft
 \n
 ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
-${options}
-\n
+${options}]
 ------------------------------
-${getRoute().split("/")[2]} >> Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
+${getRoute().split("/")[2]}
+Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
 ------------------------------
 \n
 `
