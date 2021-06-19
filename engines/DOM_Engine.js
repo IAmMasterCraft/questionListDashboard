@@ -111,18 +111,18 @@ const tmaCourseElement = (info, url) => {
 
 const tmaQuestionElement = (info, qNo, _img="") => {
     // const img = textImage.toImage(info);
-    const data = textImage.toDataURL(_img)
+    // const data = textImage.toDataURL(_img)
+    // const data = _img
     const element = `<div class="col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card card-statistic-1">
         <div class="card-wrap" id="tma_${Date.now()}">
             <div class="card-header">
                 <h4>
-                    <span class="text-right btn btn-primary btn-sm" onclick="zoomInWithSwal('${data}', '${qNo}')">Zoom in <i class="fas fa-search"></i></span>
+                    
                     ${getRoute().split("/")[2]}
                 </h4>
             </div>
             <div class="card-body">
-                <img style="max-width: 90%" class="img-responsive" src="${data}"/>
                 <div>${info}</div>
                 <span class="copyright text-${pickRandomColor()}">@IAmMasterCraft <i class="fas fa-laptop-code"></i></span>
             </div>
@@ -203,24 +203,40 @@ const questionsToDom = () => {
                 .replace(/\n/g, "<br>");
             element = element.split(" @@@ ");
             let options = element[1].replace(/<br>/g, "\n")
-            //$("#parent").append(tmaQuestionElement(`${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`));
-            const img_info = 
-`
-\n
-${getRoute().split("/")[2]}/@IAmMasterCraft
-\n
-${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
-${options}
-------------------------------
-${getRoute().split("/")[2]}
-Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
-------------------------------
-\n
-`
-            $("#parent").append(tmaQuestionElement(
-                `******
-                `, index + 1, img_info
-            ));
+            $("#parent").append(tmaQuestionElement(`${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`));
+            // const pNode = document.createElement("p");
+            // const nodeContent = `${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`;
+            // pNode.append(nodeContent);
+            // domtoimage.toPng(pNode).then((d_uri) => {
+            //     $("#parent").append(tmaQuestionElement(
+            //         `******
+            //         `, index + 1, d_uri,
+            //     ));
+            // }).catch((error) => {
+            //     console.log(error);
+            //     loadingNotification(
+            //         "Arrrrgggghhhhh....", 
+            //         `Something went wrong with displaying ${getRoute().split("/")[3]}, report back ASAP!`,
+            //         "https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_1024x1024.png"
+            //     );
+            // });
+//             const img_info = 
+// `
+// \n
+// ${getRoute().split("/")[2]}/@IAmMasterCraft
+// \n
+// ${index + 1}). ${splitInFive(element[0].replace("<br>", ""))}
+// ${options}
+// ------------------------------
+// ${getRoute().split("/")[2]}
+// Correct Answer: ${splitInFive(element[2].replace("<br>", ""))}  
+// ------------------------------
+// \n
+// `
+            // $("#parent").append(tmaQuestionElement(
+            //     `******
+            //     `, index + 1, pNode.innerText
+            // ));
         });
         forceCloseSwal();
     });
