@@ -157,7 +157,11 @@ const loginElement = () => {
 
 const loginToDom = () => {
     $(".table-responsive").hide();
+    loadingNotification("NOTICE", "Due to the system glitch on school portal some couple of courses now have questions with no answers, and you are bound to find some couple of missing questions here. The fault is not from our end. Don't forget to follow the instrunction on nouonline.net");
     $("#parent").append(loginElement);
+    setTimeout(() => {
+        forceCloseSwal();
+    }, 10000);
 }
 
 const tmaLinksToDom = () => {
