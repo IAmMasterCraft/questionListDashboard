@@ -207,7 +207,7 @@ const questionsToDom = () => {
                 .replace(/\n/g, "<br>");
             element = element.split(" @@@ ");
             let options = element[1].replace(/<br>/g, "\n")
-            $("#parent").append(tmaQuestionElement(`${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${(element[2].includes("WRONG")) ? "" : element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`));
+            $("#parent").append(tmaQuestionElement(`${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${(element[2].includes("WRONG")) ? "Answer no just dey for this question" : element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`));
             // const pNode = document.createElement("p");
             // const nodeContent = `${index + 1}). ${element[0]}<small>${getRoute().split("/")[2]}</small> <br> ${element[1]}<small>${getRoute().split("/")[2]}</small> <br><b> Correct Answer: <u>${element[2]}</u><small>${getRoute().split("/")[2]}</small> </b>`;
             // pNode.append(nodeContent);
