@@ -157,7 +157,7 @@ const loginElement = () => {
 
 const loginToDom = () => {
     $(".table-responsive").hide();
-    loadingNotification("NOTICE", "Due to the system glitch on school portal some couple of courses now have questions with no answers, and you are bound to find some couple of missing questions or answers marked as wrong on some CIT's, NSC's, ENT's etc... The fault is not from our end. Don't forget to follow the instruction on nouonline.net");
+    loadingNotification("NOTICE", "Still on system glitch, school don dey reverse some previously submitted tma, make una run checkup on your courses one by one ooo");
     $("#parent").append(loginElement);
     setTimeout(() => {
         forceCloseSwal();
