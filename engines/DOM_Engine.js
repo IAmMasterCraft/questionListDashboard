@@ -161,7 +161,7 @@ const loginToDom = () => {
     $("#parent").append(loginElement);
     setTimeout(() => {
         forceCloseSwal();
-    }, 15000);
+    }, 10000);
 }
 
 const tmaLinksToDom = () => {
