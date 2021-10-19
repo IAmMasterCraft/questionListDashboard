@@ -43,7 +43,8 @@ const getTmaQuestions = async() => {
         await $.get(url, (result) => {
             const allResult = Object.objsize(result["fields"]);
             for (let index = 0; index < allResult; index++) {
-                const element = result["fields"][`question${index + 1}`];
+                // const element = result["fields"][`question${index + 1}`];
+                const element = result["fields"][index];
                 tmaQuestions.push(element["stringValue"]);
             }
         });
