@@ -157,11 +157,11 @@ const loginElement = () => {
 
 const loginToDom = () => {
     $(".table-responsive").hide();
-    loadingNotification("NOTICE", "Still on system glitch, school don dey reverse some previously submitted tma, make una run checkup on your courses one by one ooo");
+    loadingNotification("NOTICE", "Life is tuff!");
     $("#parent").append(loginElement);
     setTimeout(() => {
         forceCloseSwal();
-    }, 10000);
+    }, 3000);
 }
 
 const tmaLinksToDom = () => {
