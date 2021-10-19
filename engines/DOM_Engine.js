@@ -124,7 +124,7 @@ const tmaQuestionElement = (info, qNo, _img="") => {
             </div>
             <div class="card-body">
                 <div>${info}</div>
-                <span class="copyright text-${pickRandomColor()}">@IAmMasterCraft <i class="fas fa-laptop-code"></i></span>
+                <!--<span class="copyright text-${pickRandomColor()}">@IAmMasterCraft <i class="fas fa-laptop-code"></i></span>-->
             </div>
         </div>
   </div>`;
@@ -199,6 +199,13 @@ const splitInFive = (text) => {
 
 const questionsToDom = () => {
     $(".table-responsive").hide();
+    getTmaQuestions().then(questions => {
+        questions.forEach(q => {
+            $("#parent").append(tmaQuestionElement(q));
+        });
+        forceCloseSwal();
+    });
+    /*
     getTmaQuestions().then((questions) => {
         questions.map((question, index) => {
             let element = question
@@ -244,4 +251,5 @@ const questionsToDom = () => {
         });
         forceCloseSwal();
     });
+    */
 }
