@@ -17,7 +17,7 @@ const getTmaLinks = async() => {
             for (let index = 0; index < allResult; index++) {
                 const element = result["fields"][index];
                 if (element["stringValue"].includes("tma")) {
-                    tmaLinks.push(element["stringValue"]);
+                    // tmaLinks.push(element["stringValue"]);
                 }
             }
             tmaLinks.push("past_questions");
